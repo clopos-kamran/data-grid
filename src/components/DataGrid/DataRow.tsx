@@ -20,7 +20,7 @@ export const DataRow: React.FC<DataRowProps> = ({
     return (
         <div
             onClick={() => onRowClick?.(data)}
-            className="grid grid-cols-subgrid  sticky top-[-2px] z-10 hover:bg-gray-100"
+            className="grid grid-cols-subgrid hover:bg-gray-100"
             style={gridStyle}
         >
             {columns.map((column) => {

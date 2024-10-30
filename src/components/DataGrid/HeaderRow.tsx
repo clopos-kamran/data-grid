@@ -11,7 +11,7 @@ export const HeaderRow: React.FC<HeaderRowProps> = ({ columns }) => {
     const gridStyle = getGridStyle(columns.length);
     return (
         <div
-            className="grid grid-cols-subgrid bg-blue-50 sticky top-[-2px] z-20"
+            className="grid grid-cols-subgrid bg-blue-50 sticky z-10 top-0"
             style={gridStyle}
         >
             {columns.map((column) => (
