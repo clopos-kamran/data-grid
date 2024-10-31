@@ -9,7 +9,8 @@ interface HeaderRowProps {
 }
 
 export const HeaderRow: React.FC<HeaderRowProps> = ({ columns, bordered }) => {
-    const gridStyle = getGridStyle(columns.length);
+    const gridStyle = getGridStyle(columns);
+    console.log(gridStyle);
     return (
         <div
             className="grid grid-cols-subgrid bg-blue-50 sticky z-10 top-0"

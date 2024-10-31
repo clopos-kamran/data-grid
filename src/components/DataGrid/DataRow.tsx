@@ -18,7 +18,7 @@ export const DataRow: React.FC<DataRowProps> = ({
     index,
     bordered,
 }) => {
-    const gridStyle = getGridStyle(columns.length);
+    const gridStyle = getGridStyle(columns);
     return (
         <div
             onClick={() => onRowClick?.(data)}

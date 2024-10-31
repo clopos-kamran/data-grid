@@ -1,6 +1,7 @@
 import React, { FC, isValidElement } from "react";
 import { cn } from "../utils";
 import { Slot } from "@radix-ui/react-slot";
+import { Cell } from "../Cell";
 
 interface DoubleDataCellProps extends React.HTMLAttributes<HTMLDivElement> {
     value1: React.ReactNode;
@@ -22,7 +23,7 @@ export const DoubleDataCell: FC<DoubleDataCellProps> = ({
     };
 
     return (
-        <div
+        <Cell
             {...props}
             className={cn(
                 "tw-flex tw-flex-col tw-items-center tw-justify-center tw-flex-1 -tw-mt-1",
@@ -39,6 +40,6 @@ export const DoubleDataCell: FC<DoubleDataCellProps> = ({
             ) : (
                 <div {...value2Props}>{value2}</div>
             )}
-        </div>
+        </Cell>
     );
 };
