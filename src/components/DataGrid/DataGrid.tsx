@@ -23,7 +23,7 @@ export interface Column<T = any> {
     className?: string;
     cellComponent?: React.FC<{ data: T }>;
     renderCell?: (data: T, index: number) => React.ReactNode;
-    renderHeader?: (data: T) => React.ReactNode;
+    renderHeaderCell?: (column: Column) => React.ReactNode;
     onRowClick?: (row: T) => void;
 }
 
@@ -33,6 +33,7 @@ export interface DataGridProps<T = any> {
     onRowClick?: (row: T) => void;
     loading?: boolean;
     className?: string;
+    bordered?: boolean;
 }
 
 export const DataGrid: React.FC<DataGridProps> = ({
@@ -41,11 +42,12 @@ export const DataGrid: React.FC<DataGridProps> = ({
     onRowClick,
     loading = false,
     className,
+    bordered = true,
 }) => {
     return (
         <div className="relative">
             <div className={cn("grid mb-2 w-fill", className)}>
-                <HeaderRow columns={columns} />
+                <HeaderRow columns={columns} bordered={bordered} />
                 {rows.map((row, index) => (
                     <DataRow
                         data={row}
@@ -53,6 +55,7 @@ export const DataGrid: React.FC<DataGridProps> = ({
                         key={index}
                         index={index}
                         onRowClick={onRowClick}
+                        bordered={bordered}
                     />
                 ))}
             </div>

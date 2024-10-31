@@ -5,9 +5,10 @@ import { HeaderCell } from "./HeaderCell";
 
 interface HeaderRowProps {
     columns: Column[];
+    bordered?: boolean;
 }
 
-export const HeaderRow: React.FC<HeaderRowProps> = ({ columns }) => {
+export const HeaderRow: React.FC<HeaderRowProps> = ({ columns, bordered }) => {
     const gridStyle = getGridStyle(columns.length);
     return (
         <div
@@ -15,7 +16,11 @@ export const HeaderRow: React.FC<HeaderRowProps> = ({ columns }) => {
             style={gridStyle}
         >
             {columns.map((column) => (
-                <HeaderCell key={column.field} column={column} />
+                <HeaderCell
+                    key={column.field}
+                    column={column}
+                    bordered={bordered}
+                />
             ))}
         </div>
     );

@@ -8,6 +8,7 @@ export interface DataRowProps {
     index: number;
     columns: Column[];
     onRowClick?: (row: any) => void;
+    bordered?: boolean;
 }
 
 export const DataRow: React.FC<DataRowProps> = ({
@@ -15,6 +16,7 @@ export const DataRow: React.FC<DataRowProps> = ({
     columns,
     onRowClick,
     index,
+    bordered,
 }) => {
     const gridStyle = getGridStyle(columns.length);
     return (
@@ -28,7 +30,14 @@ export const DataRow: React.FC<DataRowProps> = ({
                     return column.renderCell(data, index);
                 }
                 const Comp = column.cellComponent ?? DataCell;
-                return <Comp key={column.field} data={data} column={column} />;
+                return (
+                    <Comp
+                        key={column.field}
+                        data={data}
+                        column={column}
+                        bordered={bordered}
+                    />
+                );
             })}
         </div>
     );

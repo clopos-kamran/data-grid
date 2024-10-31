@@ -1,21 +1,23 @@
 import React from "react";
-import { Column } from "./DataGrid";
-import { alignClassMap, cn } from "./utils";
+import { Cell, CellProps } from "./Cell";
+import { cn } from "./utils";
 
-export interface HeaderCellProps {
-    column: Column;
-}
+export interface HeaderCellProps extends Omit<CellProps, "children"> {}
 
-export const HeaderCell: React.FC<HeaderCellProps> = ({ column }) => {
+export const HeaderCell: React.FC<HeaderCellProps> = ({
+    className,
+    ...props
+}) => {
     return (
-        <div
+        <Cell
             className={cn(
-                "py-1 px-2 text-sm",
-                alignClassMap[column.align ?? "left"],
-                column.className
+                "border-slate-200",
+                props.bordered ? "border-t" : "",
+                className
             )}
+            {...props}
         >
-            {column.title}
-        </div>
+            {props.column.title}
+        </Cell>
     );
 };
