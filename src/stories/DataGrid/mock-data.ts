@@ -11,6 +11,7 @@ export const tableData = Array(10000)
             .float({
                 fractionDigits: 2,
                 max: 1000,
+                min: -1000,
             })
             .toFixed(2),
     }));

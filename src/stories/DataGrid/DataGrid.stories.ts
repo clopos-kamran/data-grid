@@ -44,7 +44,7 @@ export const Primary: Story = {
                 align: "right",
                 cellComponent: MoneyCell,
             },
-            { field: "email", title: "Email", width: "max-content" },
+            { field: "email", title: "Email" },
         ],
         data: tableData,
     },
